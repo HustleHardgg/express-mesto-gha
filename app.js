@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const express = require('express');
 const mongoose = require('mongoose');
 
@@ -17,7 +18,7 @@ mongoose.connect(mongoDB);
 app.use(express.json());
 
 app.use((req, res, next) => {
-  req.user = { _id: '63f7b65a4593a0895f31806e' };
+  req.user = { _id: '5d8b8592978f8bd833ca8133' };
   next();
 });
 app.use('/cards', cardRouter);
