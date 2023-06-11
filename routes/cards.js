@@ -9,12 +9,12 @@ const {
   validateCreateCard, validateCardId,
 } = require('../utils/data-validation');
 
-// Получить список, создать или удалить
+// Получить список, создать или удалить карточку
 cardRouter.get('/', getCardList);
-cardRouter.post('/', createCard, validateCreateCard);
-cardRouter.delete('/:cardId', deleteCard);
+cardRouter.post('/', validateCreateCard, createCard);
+cardRouter.delete('/:cardId', validateCardId, deleteCard);
 // Поставить и убрать лайк
-cardRouter.put('/:cardId/likes', likeCard);
-cardRouter.delete('/:cardId/likes', removeLikeCard, validateCardId);
+cardRouter.put('/:cardId/likes', validateCardId, likeCard);
+cardRouter.delete('/:cardId/likes', validateCardId, removeLikeCard);
 
 module.exports = cardRouter;
