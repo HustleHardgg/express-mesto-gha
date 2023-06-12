@@ -40,15 +40,18 @@ const validateUserId = celebrate({
 // Валидация данных обновления пользователя
 const validateUserUpdate = celebrate({
   body: Joi.object().keys({
-    name: Joi.string().min(2).max(30),
-    about: Joi.string().min(2).max(30),
+    name: Joi.string().min(2).max(30)
+      .required(),
+    about: Joi.string().min(2).max(30)
+      .required(),
   }),
 });
 
 // Валидация данных обновления аватара пользователя
 const validateUserAvatar = celebrate({
   body: Joi.object().keys({
-    avatar: Joi.string().min(4).pattern(regular),
+    avatar: Joi.string().pattern(regular)
+      .required(),
   }),
 });
 
